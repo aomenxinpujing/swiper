@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 # 提交手机号
 def submit_phone(request):
-    pass
+    phonenum = request.POST.get('phone')
 
 
 # 获取验证码登录注册
