@@ -1,0 +1,9 @@
+location:深圳
+min_distance:3
+max_distance:50
+min_dating_age:20
+max_dating_age:25
+dating_sex:female
+vibration:false
+only_matche:false
+auto_play:false
