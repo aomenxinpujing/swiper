@@ -1,2 +1,3 @@
 .idea/
-.enve
+.enve/
+__pycache__/
