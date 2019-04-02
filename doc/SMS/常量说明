@@ -1,0 +1,20 @@
+一　发送结果说明
+    1.状态码说明
+        １）　错误说明　0b0000　～　0b0111
+            # 以下为而二进制代码
+            ERROR_TIMROUT = 0b0000  # 超时错误
+            ERROR_HTTP = 0b0001   # 请求错误
+            ERROR_OTHER = 0b0111  # 其他未知错误
+
+
+        2）　成功说明　0b1111
+            SMS_SUCCESS　= 0b1111
+
+        3) 保留字段　0b1000　～　0b1110
+
+    2.　消息说明
+        MSG_TIMEOUT = 'timeout '
+        MSG_HTTP =  'http error'
+        MSG_OTNRT = 'other error'
+
+        MSG_SUCCESS =  'success'

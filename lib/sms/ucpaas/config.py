@@ -8,6 +8,6 @@ YZX_SMS_PARAMS = {
     "token":"0aa27d3865cb6bbc674ba5bad1f32798",
     "appid":"406120e8a0a84e6fa8f7d2ca345f2b25",
     "templateid":"449219",
-    "param":None,
-    "mobile":None,
+    "param": None,
+    "mobile": None,
 }

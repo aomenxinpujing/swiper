@@ -1,8 +1,8 @@
 from django.core.cache import cache
 
 from commen.error import CODE_ERROR,PROFILE_ERROR
-from commen.keys import CODE_KEY
-from lib.sms import send_sms
+from lib.sms import config
+from lib.sms.ucpaas.sms import send_sms
 from lib.transform_json import render_json
 from user.forms import ProfileForm
 from user.models import User
@@ -11,20 +11,25 @@ from user.models import User
 # 提交手机号
 def submit_phone(request):
     phonenum = request.POST.get('phonenum')
-    send_sms(phonenum)
-    return render_json(data=None)
+    status, msg = send_sms(phonenum)
+    return render_json(data=(status, msg))
+
 
 # 获取验证码登录注册
 def submit_code(request):
-    phonenum = request.POST.get('phonenum')
     code = request.POST.get('code')
-    cache_code = cache.get(CODE_KEY % phonenum)
+    phone_num = request.POST.get('phonenum')
+
+    cache_code = cache.get(config.FORMAT_CODE % phone_num)
+
     if code == cache_code:
-        user,created = User.objects.get_or_create(phonenum=phonenum, nickname=phonenum)
+        user,created = User.objects.get_or_create(phonenum=phone_num,
+                                                  nickname=phone_num)
         request.session['uid'] = user.id
         return render_json(data=user.to_dict())
     else:
         return render_json(data='验证码错误', code=CODE_ERROR)
+
 
 # 获取个人资料
 def get_profile(request):
@@ -44,7 +49,6 @@ def edit_profile(request):
         return render_json(profile.to_dict())
     else:
         return render_json(profileform.errors, PROFILE_ERROR)
-
 
 
 # 头像上传
