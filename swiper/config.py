@@ -11,3 +11,10 @@ YZX_SMS_PARAMS = {
     "param":None,
     "mobile":None,
 }
+
+
+# 七牛
+ACCESS_KEY = 'ok-1imOD_HwKmOynXQoYHifhcBQ4QArm2zriwiFJ'
+SECRET_KEY = 'xqHQFC8SimAH-ETw8PMLrU3oBRTRL8QFyntrdyBk'
+QINIU_BUCKET_NAME = 'python1811'
+QINIU_CLOUD_URL = 'http://ppbuzwo4f.bkt.clouddn.com'

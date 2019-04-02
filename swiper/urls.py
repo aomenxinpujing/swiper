@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^api/submitcode/$', api.submit_code),
     url(r'^api/getprofile/$', api.get_profile),
     url(r'^api/editprofile/$', api.edit_profile),
+    url(r'^api/uploadicon/$', api.upload_icon),
 ]

@@ -1,3 +1,5 @@
 .idea/
 .enve/
 __pycache__/
+.qiniu_pythonsdk_hostscache.json
+medias/

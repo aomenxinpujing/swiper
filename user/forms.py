@@ -9,18 +9,22 @@ class ProfileForm(forms.ModelForm):
         fields = '__all__'
 
     # 自定义校验
-    def clean_min_distance(self):
+    def clean_max_distance(self):
+        print('自定义校验距离')
         clean_data = super().clean()
+        print(clean_data)
         min_distance = clean_data['min_distance']
         max_distance = clean_data['max_distance']
         if min_distance > max_distance:
             raise forms.ValidationError('最小距离不能大于最大距离')
-        return min_distance
+        return max_distance
 
-    def clean_min_age(self):
+    def clean_max_dating_age(self):
+        print('自定义校验年龄')
         clean_data = super().clean()
-        min_age = clean_data['min_age']
-        max_age = clean_data['max_age']
-        if min_age > max_age:
+        print(clean_data)
+        min_dating_age = clean_data['min_dating_age']
+        max_dating_age = clean_data['max_dating_age']
+        if min_dating_age > max_dating_age:
             raise forms.ValidationError('最小年龄不能大于最大年龄')
-        return min_age
+        return max_dating_age
